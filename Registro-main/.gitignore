@@ -1,0 +1,54 @@
+# ============================================================
+#  .gitignore raíz — proyecto Registro (backend + frontend)
+# ============================================================
+
+# Dependencias
+node_modules/
+**/node_modules/
+
+# Builds / artefactos
+dist/
+build/
+.next/
+out/
+**/dist/
+**/build/
+**/.next/
+*.tsbuildinfo
+
+# Artefactos que tsc puede emitir desde vite.config.ts
+frontend/vite.config.js
+frontend/vite.config.d.ts
+
+# Variables de entorno (NUNCA versionar secretos)
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Prisma (cliente generado)
+**/.prisma/
+
+# Python (por si vuelve a aparecer otro proyecto)
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.db
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporales
+*.tmp
+*.temp
+tmp/

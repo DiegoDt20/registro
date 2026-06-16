@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Rol {
+  ADMINISTRADOR
+  REGISTRADOR
+}
+
+enum Sexo {
+  MASCULINO
+  FEMENINO
+}
+
+enum EstadoCivil {
+  SOLTERO
+  CASADO
+  DIVORCIADO
+  VIUDO
+}
+
+model Usuario {
+  id        String   @id @default(uuid())
+  nombre    String
+  correo    String   @unique
+  password  String
+  rol       Rol      @default(REGISTRADOR)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("usuarios")
+}
+
+model Miembro {
+  id              String      @id @default(uuid())
+  codigoMiembro   String      @unique @map("codigo_miembro")
+  dni             String      @unique
+  nombres         String
+  apellidos       String
+  sexo            Sexo
+  estadoCivil     EstadoCivil @map("estado_civil")
+  profesion       String
+  fechaNacimiento DateTime    @map("fecha_nacimiento") @db.Date
+  celular         String
+  correo          String?
+  direccion       String
+  foto            String? // Data URL (base64) de la fotografía, opcional
+  activo          Boolean     @default(true)
+  createdAt       DateTime    @default(now()) @map("created_at")
+  updatedAt       DateTime    @updatedAt @map("updated_at")
+
+  @@map("miembros")
+}

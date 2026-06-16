@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(psql --version)",
+      "Bash(git --version)",
+      "Bash(npm install *)",
+      "Bash(npx prisma *)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(docker compose *)",
+      "Bash(npm run *)",
+      "PowerShell(Get-CimInstance *)"
+    ]
+  }
+}

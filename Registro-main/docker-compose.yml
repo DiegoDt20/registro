@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: registro-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: registro_miembros
+      POSTGRES_USER: registro
+      POSTGRES_PASSWORD: registro123
+    # Puerto 5433 en el host para no chocar con el contenedor erp-postgres (5432).
+    ports:
+      - "5433:5432"
+    volumes:
+      - registro_pgdata:/var/lib/postgresql/data
+
+volumes:
+  registro_pgdata:

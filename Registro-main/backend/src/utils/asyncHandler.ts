@@ -1,0 +1,12 @@
+import { NextFunction, Request, Response } from "express";
+
+type AsyncFn = (req: Request, res: Response, next: NextFunction) => Promise<unknown>;
+
+/**
+ * Envuelve un controlador async para que los errores lleguen al errorHandler
+ * (Express 4 no captura promesas rechazadas automáticamente).
+ */
+export const asyncHandler =
+  (fn: AsyncFn) => (req: Request, res: Response, next: NextFunction) => {
+    Promise.resolve(fn(req, res, next)).catch(next);
+  };
