@@ -35,8 +35,8 @@ export default function Sidebar() {
           <ShieldHalf size={22} />
         </div>
         <div className="leading-tight">
-          <p className="text-sm font-bold">Registro</p>
-          <p className="text-xs text-slate-400">Miembros y Credenciales</p>
+          <p className="text-sm font-bold">Integridad Democrática</p>
+          <p className="text-xs text-slate-400">Organización Social</p>
         </div>
       </div>
 
@@ -60,7 +60,7 @@ export default function Sidebar() {
       </nav>
 
       <div className="border-t border-white/10 px-6 py-4 text-xs text-slate-400">
-        © {new Date().getFullYear()} Organización
+        © {new Date().getFullYear()} Integridad Democrática
       </div>
     </aside>
   );
